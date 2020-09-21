@@ -11,7 +11,7 @@ const Todo = ({ todo, index, deleteTodo }) => {
 					x
 				</button>
 			</div>
-			<div className="line"> </div>
+			<div className="line" />
 		</>
 	);
 };

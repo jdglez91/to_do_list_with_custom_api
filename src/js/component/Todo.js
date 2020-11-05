@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import React from "react";
 
 // export const Todo = () => {
@@ -6,7 +5,6 @@
 
 //     )
 // }
-=======
 import React from "react";
 
 const Todo = ({ todo, index, deleteTodo }) => {
@@ -26,4 +24,3 @@ const Todo = ({ todo, index, deleteTodo }) => {
 };
 
 export default Todo;
->>>>>>> a61127e83432a46fbd154433bc5fbff1e8a7bdb9

@@ -16,7 +16,6 @@ h1 {
     color: brown;
     font-size: 60px;
 }
-<<<<<<< HEAD
 
 .todo{
     display: flex;
@@ -58,42 +57,3 @@ form button{
     background-color: darkslategray;
     color: white;
 }
-=======
-.line {
-    border-bottom: solid gray 1px; 
-    width: 100%;
-}
-.todo{
-    display: flex;
-    width: 100%;
-    padding: 3px;
-}
-.btn-delete{
-    margin-left: auto;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 3px;
-    color: gray;
-    height: 20px;
-    width: 20px; 
-    text-decoration: none;
-    background-color: black; 
-}
-form input{
-    height: 25px;
-    vertical-align: auto;
-    display: flex;
-    border-radius: 5%;
-}
-form button{
-    cursor: pointer;
-    display: inline-block;
-    text-decoration: none;
-    height: 30px;
-    width: 100px;
-    border-radius: 4px;
-    background-color: white;
-    color: black;
-}
-
->>>>>>> a61127e83432a46fbd154433bc5fbff1e8a7bdb9

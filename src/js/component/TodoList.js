@@ -10,7 +10,7 @@ const TodoList = () => {
 
 	useEffect(() => {
 		fetch(
-			"https://3000-d2f89983-738d-4469-86c9-61537cf37fc4.ws-us02.gitpod.io/todos"
+			"https://3000-ec56db6b-7e7e-436f-9533-6dc606ab4f77.ws-us02.gitpod.io/todos"
 		)
 			.then(function(response) {
 				if (!response.ok) {
@@ -34,7 +34,7 @@ const TodoList = () => {
 	};
 	const handleClick = e => {
 		fetch(
-			"https://3000-d2f89983-738d-4469-86c9-61537cf37fc4.ws-us02.gitpod.io/todos",
+			"https://3000-ec56db6b-7e7e-436f-9533-6dc606ab4f77.ws-us02.gitpod.io/todos",
 			{
 				method: "POST", // or 'POST'
 				body: JSON.stringify(singleTodo), // data can be `string` or {object}!
@@ -46,13 +46,32 @@ const TodoList = () => {
 			.then(res => res.json())
 			.then(response => setTodos(response))
 			.catch(error => console.error("Error:", error));
-		setSingleTodo({});
-		//to set singleTodo {}
+		setSingleTodo({ label: "" });
 	};
-	const deleteTodo = task => {
-		const newTodos = todos.filter(item => item.label !== task);
-		console.log(newTodos);
-		setTodos(newTodos);
+	const deleteTodo = id => {
+		fetch(
+			"https://3000-ec56db6b-7e7e-436f-9533-6dc606ab4f77.ws-us02.gitpod.io/todos" +
+				"/" +
+				id,
+			{
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json"
+				}
+			}
+		)
+			.then(function(response) {
+				if (!response.ok) {
+					throw Error(response.statusText);
+				}
+				return response.json();
+			})
+			.then(function(responseAsJson) {
+				setTodos(responseAsJson);
+			})
+			.catch(function(error) {
+				console.log("Looks like there was a problem: \n", error);
+			});
 	};
 	return (
 		<>
@@ -72,7 +91,7 @@ const TodoList = () => {
 							{todoItem.label}
 							<span
 								type="button"
-								onClick={() => deleteTodo(todoItem.label)}>
+								onClick={() => deleteTodo(todoItem.id)}>
 								{" "}
 								X{" "}
 							</span>
